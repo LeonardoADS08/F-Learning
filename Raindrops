@@ -1,0 +1,17 @@
+module Raindrops
+
+let factors = [(3, "Pling"); (5, "Plang"); (7, "Plong")]
+
+let validFactor number (factor, text) = 
+    match number % factor with
+    | 0 -> text
+    | _ -> ""
+
+let convert (number: int): string = 
+    factors 
+    |>  List.map (validFactor number)
+    |>  String.concat ""
+    |>  fun str ->  
+            match str with
+            | "" -> string number
+            | _ -> str
