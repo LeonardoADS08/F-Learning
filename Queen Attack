@@ -1,0 +1,7 @@
+module QueenAttack
+open System
+
+let create (x, y) = x >= 0 && x < 8 && y >= 0 && y < 8
+
+let canAttack (Wx, Wy) (Bx, By) = 
+    Wx = Bx || Wy = By || abs(Wx - Bx) = abs(Wy - By)
