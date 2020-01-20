@@ -1,0 +1,19 @@
+module Primes
+
+open System
+
+let isPrime n = 
+    match n with
+    | 1 -> false
+    | _ when n > 3 && (n % 2 = 0 || n % 3 = 0) -> false
+    | _ -> [2..int (Math.Sqrt(float n))]
+           |> List.forall(fun x -> n%x <> 0)
+
+let checkPrime n =
+    match isPrime n with
+    | true -> Console.WriteLine("{0} is prime", n)
+    | false -> Console.WriteLine("{0} isn't prime", n)
+
+let TestPrimes =
+    [1..1000]
+    |> List.iter checkPrime
